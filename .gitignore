@@ -1,0 +1,36 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore logs
+*.log
+
+# Ignore raw data files
+*.qins
+*.dat
+*.csv
+*.tsv
+
+# Ignore Excel and similar files
+*.xlsx
+*.xls
+
+# Ignore images
+*.png
+*.jpg
+*.jpeg
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore outputs (but keep folders)
+outputs/**
+!outputs/.gitkeep
+
+# Ignore input raw files (but keep folders)
+input_files/raw/**
+!input_files/raw/.gitkeep
+
+# Ignore processed files (but keep folders)
+input_files/processed/**
+!input_files/processed/.gitkeep

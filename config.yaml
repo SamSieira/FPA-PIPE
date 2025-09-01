@@ -1,0 +1,30 @@
+#edit settings 
+settings:
+  sample_prefixes: ["A_Cm10", "A_Cm30", "B_Cm10", "B_Cm30"]  # all prefixes used in anubis/coveragef analysis
+  protinseq_samples: ["B_Cm10_fw", "B_Cm10_rv", "B_Cm30_rv", "B_Cm30_fw"]  # samples used for protinseq (frame-bias)
+  predict_samples: ["B_Cm10_pos", "B_Cm10_neg", "B_Cm30_pos", "B_Cm10_neg"]  # samples used for prediction (must be full title - not fw or rv)
+  genome_size: 580076  # genome size in base pairs
+
+  # Prediction parameters
+  read_threshold: 0             # Minimum reads to consider for background lambda calculation (note - reads should already be filtered by anubis)
+  pvalue_threshold: 0.05        # P-value cutoff for calling ORFs significant
+  min_repro_samples: 2          # Minimum number of replicates that must pass p-value threshold
+  poisson_prediction_samples: ["B_Cm10_fw", "B_Cm10_rv", "B_Cm30_rv", "B_Cm30_fw"] # Samples used for orf prediction with poisson model
+  sheet_name: "A_Cm10"
+  model: "Poisson_absolute"  
+
+input:
+  raw: input_files/raw/
+  processed: input_files/processed/
+  gene_regions: input_files/processed/gene_regions.tsv
+
+output:
+  anubis:
+    charts: outputs/anubis/charts/
+    plots: outputs/anubis/plots/
+    results: outputs/anubis/results.xlsx
+    all_reads: outputs/anubis/all_reads.dat
+  protinseq:
+    charts: outputs/protinseq/charts/
+    plots: outputs/protinseq/plots/
+    predictions: outputs/protinseq/predictions/   
